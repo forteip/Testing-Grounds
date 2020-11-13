@@ -1,0 +1,35 @@
+private class Character {
+	int hp;
+	int gun_ammo;
+	int ammo_pool;
+	int evasion;
+	firearm gun;
+
+	void setHp(int health){
+		hp = health;
+	}
+	
+	void shoot(monster mon){
+		if (dodge(mon.dodge) == true){
+			print ("Your attack missed!");
+		}
+		else {
+			damage = attack(mon.health, gun.attack);
+			mon.health = damage;
+			print("Your firearm hit for " + damage + " damage!");
+		}
+	}
+	void reload(firearm gun){
+		if (gun.magazine == gun_ammo) {
+			print("Your weapon is already fully loaded!");
+		}
+		else {
+			int ammo_needed = gun.magazine - gun_ammo;
+			ammo_pool -= ammo_needed;
+			gun_ammo += ammo_needed;
+			print ("you reloaded " + ammo_needed + " rounds");
+		}
+	
+	}
+
+}

@@ -1,0 +1,61 @@
+Line of sight
+
+In a standard grid with 4 cardinal directions, 180 degrees of sight relative to direction faced.
+
+
+2 key points, max distance and direction.
+
+direction a simple circular linked list.
+
+North -> East-> West -> South -> North
+
+with functions such that North.right = east, North.left = west and so forth. Very simple implementation.
+
+Player location is simply a tuple with grid coordinates relative to origin. IE: (0,0) is origin, (0, 1) is one unit to the right
+
+Map is simply a dictionary with location as key and element as value, 
+
+public List<GameObject> LOS(direction dir, int range, int[] player_location){
+	List<GameObject> list = new List<GameObject>();
+	//Forwards
+	GameObject grid_item;
+	if (dir.value == "North"){
+		for (int i = 1; i < int range; i++){
+			grid_item = map[(player_location[0]+i,player_location[1])];
+			if grid_item == GameObject{
+				list.add(grid_item);
+			}
+	
+		}
+
+	}
+	//For south, negate i of North
+	if (dir.value == "South"){
+		for (int i = 1; i < int range; i++){
+			grid_item = map[(player_location[0]-i,player_location[1])];
+			if grid_item == GameObject{
+				list.add(grid_item);
+			}
+		}
+	}
+
+	if (dir.value == "East"){
+		for (int i = 1; i < int range; i++){
+			grid_item = map[(player_location[0],player_location[1]+i)];
+			if grid_item == GameObject{
+				list.add(grid_item);
+			}
+		}
+	}
+	//for west, negate i of East
+	if (dir.value == "West"){
+		for (int i = 1; i < int range; i++){
+			grid_item = map[(player_location[0],player_location[1]-i)];
+			if grid_item == GameObject{
+				list.add(grid_item);
+			}
+		}
+	}
+	return list;
+
+}
